@@ -35,11 +35,28 @@ int main() {
   std::cin >> s;
   w = readInVector(s);
 
+
   // TODO write your code here
   // =========== START =========
+  for(int i = 0; i < x.size(); i++) {
+    double out = 0;
+    
+    for(int j = 0; j < w.size(); j++) {
+      int index = i - w.size()/2 + j;
+      if(index >= 0 && index < x.size()) {
+        out += x[index] * w[j];
+      } else if(!pack_with_zeros) {
+        if(index < 0) out += x[0] * w[j];
+        else out += x[x.size()-1] * w[j];
+      }
+    }
+    y.push_back(out);
+  }
 
-
-
+  for(double d : y) {
+    std::cout << d << " ";
+  }
+  std::cout << std::endl;
 
   // =========== END ===========
 

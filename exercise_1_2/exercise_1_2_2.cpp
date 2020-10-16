@@ -12,5 +12,18 @@ int main()
     // Palindrome Check
     // WRITE YOUR PALINDROME CHECK HERE
 
+    bool is_palindrome = true;
+    int left = 0, right = str.length()-1;
+    while(left < right) {
+    	if(str[left] != str[right]) {
+    		is_palindrome = false;
+    		break;
+    	}
+
+    	left++;
+    	right--;
+    }
+
+    std::cout << is_palindrome << std::endl;
     return 0;
 }
